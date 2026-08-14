@@ -213,8 +213,8 @@ export class SarvamVoiceClient {
     if (typeof window === 'undefined') return null;
 
     const SpeechRecognition =
-      (window as Record<string, unknown>).SpeechRecognition as typeof window.SpeechRecognition ||
-      (window as Record<string, unknown>).webkitSpeechRecognition as typeof window.SpeechRecognition;
+      (window as unknown as Record<string, any>).SpeechRecognition ||
+      (window as unknown as Record<string, any>).webkitSpeechRecognition;
 
     if (!SpeechRecognition) {
       console.warn('[SarvamVoiceClient] SpeechRecognition API not available in browser');
@@ -227,7 +227,7 @@ export class SarvamVoiceClient {
     recognition.lang = WEB_SPEECH_SUPPORTED.has(langCode) ? langCode : 'hi-IN';
     recognition.maxAlternatives = 1;
 
-    recognition.onresult = (event: SpeechRecognitionEvent) => {
+    recognition.onresult = (event: any) => {
       let interimTranscript = '';
       let finalTranscript = '';
 
@@ -244,7 +244,7 @@ export class SarvamVoiceClient {
       onResult(text, !!finalTranscript);
     };
 
-    recognition.onerror = (err: SpeechRecognitionErrorEvent) => {
+    recognition.onerror = (err: any) => {
       console.warn('[SarvamVoiceClient] Recognition error:', err.error);
       onError(err);
     };

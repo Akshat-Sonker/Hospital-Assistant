@@ -97,7 +97,7 @@ export default function EntryGatewayPage() {
       const result = await UnifiedAuthService.login({
         method: authMethod,
         identifier: identifier || '9876543210',
-        password,
+        passwordOrOtp: password,
         role: authRole,
       });
 

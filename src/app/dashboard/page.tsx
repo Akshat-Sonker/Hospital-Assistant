@@ -12,7 +12,7 @@ import { FreshnessBadge } from '@/components/ui/FreshnessBadge';
 import { PrescriptionScanner } from '@/components/patient/PrescriptionScanner';
 import { AbdmHistoryWizard } from '@/components/patient/AbdmHistoryWizard';
 import { AbdmClientService, MedicalRecord } from '@/services/abdmClient';
-import { WelfareEngineService, WelfareScheme } from '@/services/welfareEngine';
+import { WelfareEngine, SchemeEligibilityResult } from '@/services/welfareEngine';
 import { WelfareSchemeMatcher } from '@/components/patient/WelfareSchemeMatcher';
 import { VoiceConsentModal } from '@/components/voice/VoiceConsentModal';
 import {
